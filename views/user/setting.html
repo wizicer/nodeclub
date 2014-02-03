@@ -23,83 +23,67 @@
 			<form id='setting_form' class='form-horizontal' action='/setting' method='post'>
 				<div class='control-group'>
 					<label class='control-label' for='name'>用户名</label>
-					<div class='controls'>
-						<input class='input-xlarge readonly' id='name' name='name' size='30' type='text' readonly='true' value="<%= name %>" />
-					</div>
+						<input class='form-control readonly' id='name' name='name' size='30' type='text' readonly='true' value="<%= name %>" />
 				</div>
 				<div class='control-group'>
 					<label class='control-label' for='email'>电子邮件</label>
-					<div class='controls'>
-						<input class='input-xlarge readonly' id='email' name='email' size='30' type='text' readonly='true' value="<%= email %>" />
-					</div>
+						<input class='form-control readonly' id='email' name='email' size='30' type='text' readonly='true' value="<%= email %>" />
 				</div>
 				<div class='control-group'>
 					<label class='control-label' for='profile_image_url'>头像URL</label>
 					<div class='controls'>
-						<input class='input-xlarge' id='profile_image_url' name='profile_image_url' type='text' value="<%= locals.profile_image_url || '' %>" />
+						<input class='form-control' id='profile_image_url' name='profile_image_url' type='text' value="<%= locals.profile_image_url || '' %>" />
 					</div>
 				</div>
 				<div class='control-group'>
 					<label class='control-label' for='url'>个人网站</label>
-					<div class='controls'>
 						<% if(locals.url){ %>
-						<input class='input-xlarge' id='url' name='url' size='30' type='text' value="<%= url %>" />
+						<input class='form-control' id='url' name='url' size='30' type='text' value="<%= url %>" />
 						<% }else{ %>
-						<input class='input-xlarge' id='url' name='url' size='30' type='text' value='' />
+						<input class='form-control' id='url' name='url' size='30' type='text' value='' />
 						<% } %>
-					</div>
 				</div>
 				<div class='control-group'>
 					<label class='control-label' for='location'>所在地点</label>
-					<div class='controls'>
 						<% if(locals.location){ %>
-						<input class='input-xlarge' id='location' name='location' size='30' type='text' value="<%= location %>" />
+						<input class='form-control' id='location' name='location' size='30' type='text' value="<%= location %>" />
 						<% }else{ %>
-						<input class='input-xlarge' id='location' name='location' size='30' type='text' value='' />
+						<input class='form-control' id='location' name='location' size='30' type='text' value='' />
 						<% } %>
-					</div>
 				</div>
 				<div class='control-group'>
 					<label class='control-label' for='signature'>个性签名</label>
-					<div class='controls'>
 						<% if(locals.signature){ %>
-						<input class='input-xlarge' id='signature' name='signature' size='30' type='text' value="<%= signature %>" />
+						<input class='form-control' id='signature' name='signature' size='30' type='text' value="<%= signature %>" />
 						<% }else{ %>
-						<input class='input-xlarge' id='signature' name='signature' size='30' type='text' value='' />
+						<input class='form-control' id='signature' name='signature' size='30' type='text' value='' />
 						<% } %>
-					</div>
 				</div>
 				<div class='control-group'>
 					<label class='control-label' for='profile'>个人简介</label>
-					<div class='controls'>
 						<% if(locals.profile){ %>
-						<textarea class='input-xlarge' id='profile' name='profile' rows='4'><%= profile %></textarea>
+						<textarea class='form-control' id='profile' name='profile' rows='4'><%= profile %></textarea>
 						<% }else{ %>
-						<textarea class='input-xlarge' id='profile' name='profile' rows='4'></textarea>
+						<textarea class='form-control' id='profile' name='profile' rows='4'></textarea>
 						<% } %>
-					</div>
 				</div>
 				<div class='control-group'>
 					<label class='control-label' for='weibo'>微博</label>
-					<div class='controls'>
 						<% if(locals.weibo){ %>
-						<input class='input-xlarge' id='weibo' name='weibo' size='30' type='text' value="<%= weibo %>" placeholder="http://weibo.com/cnodejs" />
+						<input class='form-control' id='weibo' name='weibo' size='30' type='text' value="<%= weibo %>" placeholder="http://weibo.com/cnodejs" />
 						<% }else{ %>
-						<input class='input-xlarge' id='weibo' name='weibo' size='30' type='text' value=''
+						<input class='form-control' id='weibo' name='weibo' size='30' type='text' value=''
             placeholder="http://weibo.com/cnodejs" />
 						<% } %>
-					</div>
 				</div>
         <div class='control-group'>
           <label class='control-label' for='github'>GitHub</label>
-          <div class='controls'>
             <% if(locals.githubUsername){ %>
-            <input class='input-xlarge' id='github' name='github' size='30' type='text' value="<%= githubUsername %>" placeholder="@username" />
+            <input class='form-control' id='github' name='github' size='30' type='text' value="<%= githubUsername %>" placeholder="@username" />
             <% }else{ %>
-            <input class='input-xlarge' id='github' name='github' size='30' type='text' value=''
+            <input class='form-control' id='github' name='github' size='30' type='text' value=''
             placeholder="@username" />
             <% } %>
-          </div>
         </div>
 				<div class='control-group'>
 					<label class='control-label' for='receive_at_msg'>邮件提醒</label>
@@ -125,14 +109,14 @@
 				<input type='hidden' id='action' name='action' value='change_setting' />
 				<input type='hidden' name='_csrf' value='<%= csrf %>' />
 				<div class='form-actions'>
-					<input type='submit' class='btn' value='保存设置' />
+					<input type='submit' class='btn btn-primary' value='保存设置' />
 				</div>
 			</form>
 		</div>
 	</div>
 
-	<div class='panel'>
-		<div class='header'>
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
 			<span class='col_fade'>头像</span>
 		</div>
 		<div class='inner'>
@@ -146,28 +130,24 @@
 		</div>
 	</div>
 
-	<div class='panel'>
-		<div class='header'>
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
 			<span class='col_fade'>更改密码</span>
 		</div>
 		<div class='inner'>
 			<form id='change_pass_form' class='form-horizontal' action='/setting' method='post'>
-				<div class='control-group'>
+				<div class='form-group'>
 					<label class='control-label' for='old_pass'>当前密码</label>
-					<div class='controls'>
-						<input class='input-xlarge' type='password' id='old_pass' name='old_pass' size='30' />
-					</div>
+						<input class='form-control' type='password' id='old_pass' name='old_pass' />
 				</div>
-				<div class='control-group'>
+				<div class='form-group'>
 					<label class='control-label' for='new_pass'>新密码</label>
-					<div class='controls'>
-						<input class='input-xlarge' type='password' id='new_pass' name='new_pass' size='30' />
-					</div>
+						<input class='form-control' type='password' id='new_pass' name='new_pass' />
 				</div>
 				<input type='hidden' id='action' name='action' value='change_password' />
 				<input type='hidden' name='_csrf' value='<%= csrf %>' />
 				<div class='form-actions'>
-					<input type='submit' class='btn' value='更改密码' />
+					<input type='submit' class='btn btn-primary' value='更改密码' />
 				</div>
 			</form>
 		</div>

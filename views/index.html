@@ -1,9 +1,7 @@
 <%- partial('sidebar') %>
-
-<div id="content">
-  <div class="panel">
-    <div class="inner">
-      <div class="header clearfix">
+  <div class="page-header"><h1></h1></div>
+  <div class="panel panel-default">
+      <div class="panel-heading">
         当前话题
         <% if (locals.current_user) { %>
           <a href='/topic/create' id='create_topic_btn'>
@@ -11,18 +9,24 @@
           </a>
         <% } %>
       </div>
-      <% if (locals.topics && topics.length > 0) { %>
-      <%- partial('topic/list', {
-        topics: topics,
-        pages: pages,
-        current_pages: current_page,
-        base: keyword ? ('/?q=' + keyword) : '/'
-      }) %>
+      <div class="panel-body">
+      <% if (locals.current_user) { %>
+        <% if (locals.topics && topics.length > 0) { %>
+        <%- partial('topic/list', {
+            topics: topics,
+            pages: pages,
+            current_pages: current_page,
+            base: keyword ? ('/?q=' + keyword) : '/'
+        }) %>
+        <% } else { %>
+        <div class='inner'>
+            <p>无话题</p>
+        </div>
+        <% } %>
       <% } else { %>
       <div class='inner'>
-        <p>无话题</p>
+          <p>login to view</p>
       </div>
       <% } %>
-    </div>
+      </div>
   </div>
-</div>

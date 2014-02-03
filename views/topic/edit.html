@@ -43,7 +43,7 @@
   </div>
 </div>-->
 
-<div id='content'>
+<div class="header"><h1></h1></div>
   <div class='panel'>
     <div class='header'>
       <ol class='breadcrumb'>
@@ -73,20 +73,19 @@
       <form id='create_topic_form' action='/topic/create' method='post'>
       <% } %>
         <fieldset>
-          <label class='bold' for='title'>标题</label>
-          <textarea id='title' name='title' rows='1' placeholder="请在此输入标题"><%= locals.title || '' %></textarea>
-          <label class='bold' for='t_content'>内容</label>
-          <textarea class='editor' id='wmd-input' name='t_content' rows='20'><%= locals.content || '' %></textarea>
+          <label for='title'>标题</label>
+          <input id='title' name='title' class="form-control" placeholder="请在此输入标题"><%= locals.title || '' %></textarea>
+          <label for='t_content'>内容</label>
+          <textarea class='editor' id='wmd-input' name='t_content' class="form-control" rows='20'><%= locals.content || '' %></textarea>
 
           <input type='hidden' id='topic_tags' name='topic_tags' value=''></input>
           <input type='hidden' name='_csrf' value='<%= csrf %>' />
-          <button id='submit_btn' type="submit" class='btn'>发布</button>
+          <button id='submit_btn' type="submit" class='btn btn-primary'>发布</button>
         </fieldset>
       </form>
     </div>
     <% } %>
   </div>  
-</div>
 
 <!-- ajaxupload -->
 <!-- markdown editor -->

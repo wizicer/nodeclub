@@ -14,9 +14,7 @@
     <link title="RSS" type="application/rss+xml" rel="alternate" href="/rss" />
     <!-- style -->
     <%- Loader('/public/stylesheets/index.min.css')
-      .css('/public/libs/bootstrap/css/bootstrap.css')
-      .css('/public/stylesheets/common.css')
-      .css('/public/stylesheets/style.css')
+      .css('/public/libs/bootstrap/css/bootstrap.min.css')
       .css('/public/libs/code-prettify/prettify.css')
       .done(assets, config.site_static_host, config.mini_assets)
     %>
@@ -28,7 +26,7 @@
     <%- Loader('/public/index.min.js')
       .js('/public/libs/code-prettify/prettify.js')
       .js('/public/libs/jquery/jquery.js')
-      .js('/public/libs/bootstrap/js/bootstrap.js')
+      .js('/public/libs/bootstrap/js/bootstrap.min.js')
       .js('/public/javascripts/main.js')
       .done(assets, config.site_static_host, config.mini_assets)
     %>
@@ -44,16 +42,24 @@
     <title><%= config.description %></title>
     <% } %>
   </head>
-  <body>
+  <body role="document">
+<div class="container">
     <!-- navbar -->
-    <div class='navbar'>
-      <div class='navbar-inner'>
-        <div class='container'>
-          <a class='brand' href='/'><%- config.site_logo || config.name %></a>
-          <form id='search_form' class='navbar-search' action="/">
-            <input type='text' id='q' name='q' class='search-query span3' value='<%= locals.keyword || '' %>'/>
+    <div class='navbar navbar-default navbar-fixed-top'>
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class='navbar-brand' href='/'><%- config.site_logo || config.name %></a>
+          </div>
+          <div class="navbar-collapse collapse">
+          <form id='search_form' class='navbar-form navbar-left' action="/">
+            <input type='text' id='q' name='q' class='form-control' value='<%= locals.keyword || '' %>'/>
           </form>
-          <ul class='nav pull-right'>
+          <ul class='nav navbar-nav navbar-right'>
             <li><a href='/'>首页</a></li>
             <%
             var site_navs = config.site_navs || [];
@@ -75,14 +81,9 @@
             <% } %>
           </ul>
         </div>
-      </div>
     </div>
-    <!-- wrapper -->
-    <div id='wrapper'>
-      <div id='main'>
         <%- body %>
-      </div>
-    </div>
-    <div id='backtotop'>回到顶部</div>
+    <div id='backtotop' class="footer"><p>回到顶部</p></div>
+  </div>
   </body>
 </html>

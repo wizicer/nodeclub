@@ -1,8 +1,8 @@
 <%- partial('sidebar') %>
 
 <div id='content'>
-	<div class='panel'>
-		<div class='header'>
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
 			<ul class='breadcrumb'>
 				<li><a href='/'>主页</a><span class='divider'>/</span></li>
 				<li class='active'><%= user.name %></li>
@@ -16,7 +16,7 @@
 				<% if (!locals.relation) { %>
 				<button class='btn btn-success follow_btn' action='follow'>加入关注</button>
 				<% } else { %>
-				<button class='btn follow_btn' action='un_follow'>取消关注</button>
+				<button class='btn btn-info follow_btn' action='un_follow'>取消关注</button>
 				<% } %>
 			<% } %>
 			<a class='dark'><%= user.name %></a>
@@ -66,34 +66,34 @@
 			<p class='col_fade'>于 <%= user.friendly_create_at %> 加入 <%= config.name %></p>
 			<% if (locals.current_user && current_user.is_admin) { %>
 				<% if (!user.is_star) { %>
-				<button class='btn' id='set_star_btn' action='set_star'>设为达人</button>
+				<button class='btn btn-info' id='set_star_btn' action='set_star'>设为达人</button>
 				<% } else { %>
-				<button class='btn' id='set_star_btn' action='cancel_star'>取消达人</button>
+				<button class='btn btn-info' id='set_star_btn' action='cancel_star'>取消达人</button>
 				<% } %>
 
         <% if (!user.is_block) { %>
-          <button class='btn' id='set_block_btn' action='set_block'>屏蔽用户并删其所有帖</button>
+          <button class='btn btn-danger' id='set_block_btn' action='set_block'>屏蔽用户并删其所有帖</button>
         <% } else { %>
-          <button class='btn' id='set_block_btn' action='cancel_block'>取消屏蔽用户</button>
+          <button class='btn btn-info' id='set_block_btn' action='cancel_block'>取消屏蔽用户</button>
         <% } %>
 
 				<br/><br/>
-				Email (Seen by Administrator): <a href="mailto:<%= user.email %>"><%= user.email %></a>
+				Email (Seen by Administrator): <a class="btn btn-info btn-xs" href="mailto:<%= user.email %>"><%= user.email %></a>
 				<% if (!user.active) { %>
-				<a class='btn' href="/active_account?key=<%- locals.token %>&name=<%= user.name %>" target="_blank">激活账号</a>
+				<a class='btn btn-primary' href="/active_account?key=<%- locals.token %>&name=<%= user.name %>" target="_blank">激活账号</a>
 				<% } %>
 			<% } %>
 		</div>
 	</div>
 
-	<div class='panel'>
-		<div class='header'>
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
 			<span class='col_fade'>最近发布话题</span>
 		</div>
 		<% if (locals.recent_topics && recent_topics.length > 0) { %>
 		<%- partial('topic/abstract', { collection: recent_topics, as: 'topic' }) %>
 		<div class='cell more'>
-			<a class='dark' href="/user/<%= user.name %>/topics">查看更多»</a>
+			<a class='btn btn-block' href="/user/<%= user.name %>/topics">查看更多»</a>
 		</div>
 		<% } else { %>
 		<div class='inner'>
@@ -102,14 +102,14 @@
 		<% } %>
 	</div>
 
-	<div class='panel'>
-		<div class='header'>
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
 			<span class='col_fade'>最近参与话题</span>
 		</div>
 		<% if (locals.recent_replies && recent_replies.length > 0) { %>
 		<%- partial('topic/abstract', { collection: recent_replies, as: 'topic' }) %>
 		<div class='cell more'>
-			<a class='dark' href="/user/<%= user.name %>/replies">查看更多»</a>
+			<a class='btn btn-block' href="/user/<%= user.name %>/replies">查看更多»</a>
 		</div>
 		<% } else { %>
 		<div class='inner'>
