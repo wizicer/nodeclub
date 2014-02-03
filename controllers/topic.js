@@ -131,7 +131,7 @@ exports.put = function (req, res, next) {
       }
       res.render('topic/edit', {tags: tags, edit_error: '标题不能是空的。', content: content});
     });
-  } else if (title.length < 10 || title.length > 100) {
+  } else if (title.length < 4 || title.length > 100) {
     Tag.getAllTags(function (err, tags) {
       if (err) {
         return next(err);

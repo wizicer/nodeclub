@@ -1,4 +1,4 @@
-<div id='sidebar'>
+<!--<div id='sidebar'>
   <div class='panel'>
     <div class='header'>
       <span class='col_fade'>话题发布步骤</span>
@@ -41,7 +41,7 @@
       <span>详见 <a href='http://www.ituring.com.cn/article/775' target='_blank'>Markdown Wiki</a></span>
     </div>
   </div>
-</div>
+</div>-->
 
 <div id='content'>
   <div class='panel'>
@@ -74,7 +74,7 @@
       <% } %>
         <fieldset>
           <label class='bold' for='title'>标题</label>
-          <textarea class='span9' id='title' name='title' rows='1' placeholder="请在此输入标题，字数控制在10到100个之间"><%= locals.title || '' %></textarea>
+          <textarea id='title' name='title' rows='1' placeholder="请在此输入标题"><%= locals.title || '' %></textarea>
           <label class='bold' for='t_content'>内容</label>
           <textarea class='editor' id='wmd-input' name='t_content' rows='20'><%= locals.content || '' %></textarea>
 

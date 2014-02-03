@@ -12,7 +12,8 @@
 }
 
 #main {
-  width: 1060px;
+  /*width: 1060px;*/
+  max-width: 1024px;
   margin: 0px auto;
   padding: 0px 0px 30px 0px;
   min-height:400px;
@@ -23,11 +24,11 @@
 }
 #content {
   padding: 0;
-  width: 758px;
+  /*width: 758px;*/
   float: left;
 }
 #sidebar {
-  width: 290px;
+  /*width: 290px;*/
   float: right;
   font-size: 14px;
 }
@@ -52,7 +53,8 @@
   margin-top: 8px;
 }
 #footer_main {
-  width: 1040px;
+  /*width: 1040px;*/
+  max-width: 1024px;
   margin: 0px auto;
   color: #e2e2e2;
   padding: 20px 0px;
@@ -167,13 +169,14 @@ a.light:hover {
   padding: 10px;
 }
 .last_time {
-  position: absolute;
+  /*position: absolute;*/
   color: hsl(0, 7%, 70%);
-  top: 0px;
-  right: 0px;
+  /*top: 0px;
+  right: 0px;*/
   font-size: 13px;
-  line-height: 53px;
-  padding: 0px 8px;
+  /*line-height: 48px;*/
+  /*float: left;*/
+  /*padding: 0px 8px;*/
 }
 .board .floor {
   line-height: 24px;
@@ -386,9 +389,9 @@ a.user_avatar:hover {
 .topic_wrap {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   line-height: 48px;
-  width: 500px;
+  /*width: 500px;*/
 }
 a.topic_title {
   font-size: 16px;
@@ -489,7 +492,7 @@ img.unread {
   left: 300px;
 }
 .wmd-preview {
-  width: 707px;
+  /*width: 707px;*/
   border: 1px solid #ccc;
   padding: 4px 8px;
   overflow: auto;
@@ -509,7 +512,7 @@ textarea[id^=wmd-input] {
   min-height: 225px;
 }
 .reply2-wmd-preview {
-  width: 518px;
+  /*width: 518px;*/
 }
 .wmd-prompt-background {
   background-color: Black;
@@ -549,7 +552,8 @@ textarea[id^=wmd-input] {
   box-shadow: none;
 }
 .navbar .container {
-  width: 1060px;
+  /*width: 1060px;*/
+  max-width: 1024px;
   margin: 4px auto;
 }
 .navbar .brand {
@@ -682,7 +686,7 @@ div[class$=part] {
   width: 80px;
 }
 .reply_part {
-  width: 300px;
+  /*width: 300px;*/
 }
 .topic_content{
 }
