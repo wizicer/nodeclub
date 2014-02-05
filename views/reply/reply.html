@@ -1,10 +1,11 @@
+<tr><td colspan='2'>
 <div class='cell reply_area reply_item' id="reply<%= indexInCollection+1 %>" reply_id="<%- reply._id %>">
   <a id="<%- reply._id %>"></a>
-  <div class='author_content'>
-    <div class='user_avatar block'>
-      <a href="/user/<%= reply.author.name %>"><img src="<%= reply.author.avatar_url %>" title="<%= reply.author.name %>" /></a>
+  <div class='author_content row'>
+    <div class='user_avatar block col-xs-2'>
+      <a href="/user/<%= reply.author.name %>"><img width='24' src="<%= reply.author.avatar_url %>" title="<%= reply.author.name %>" /></a>
     </div>
-    <div class='user_info'>
+    <div class='user_info col-xs-7'>
       <span class='reply_author'>
         <a class='dark' href="/user/<%= reply.author.name %>"><%= reply.author.name %>
         </a>
@@ -13,7 +14,7 @@
         <a href="#<%- reply._id %>"><%= reply.friendly_create_at %></a>
       </span>
     </div>
-    <div class='user_action'>
+    <div class='user_action col-xs-3'>
       <span class='col_fade'>#<%= indexInCollection + 1 %></span>
       <% if (locals.current_user && current_user._id.toString() == reply.author._id.toString()) { %>
         <a href='javascript:void(0);' class='delete_reply_btn'>
@@ -30,25 +31,30 @@
       </span>
     </div>
   </div>
-  <div class='reply_content'>
+  <!--<div class='reply_content'>-->
   <%- markdown(reply.content) %>
-  </div>
+  <!--</div>-->
+  <!--
   <div class='clearfix'>
     <div class='reply2_area'>
       <% if (reply.replies.length >0) { %>
         <%- partial('reply/reply2',{collection: reply.replies, as: 'reply2'}) %>
       <% } %>
+  </td></tr><tr><td colspan='2'>
       <% if (locals.current_user) { %>
       <form class='reply2_form' action='/<%= topic._id %>/reply2' method='post'>
         <input type='hidden' name='_csrf' value='<%- csrf %>' />
         <input type='hidden' name='reply_id' value='<%- reply._id %>' />
-        <textarea class='span8 editor reply_editor' id="reply2_editor_<%- reply._id %>" name='r2_content' rows='4'></textarea>
+        <textarea class='span8 editor reply_editor form-control' id="reply2_editor_<%- reply._id %>" name='r2_content' rows='1' ></textarea>
         <p style="margin-top: 10px">
-          <button class='btn reply2_submit_btn' type="submit" data-id='<%= reply._id %>'>回复</button>
+          <button class='btn reply2_submit_btn btn-info btn-xs' type="submit" data-id='<%= reply._id %>'>回复</button>
           <span class='col_fade'>Ctrl+Enter 快捷回复</span>
         </p>
       </form>
       <% } %>
     </div>
   </div>
+  -->
 </div>
+</td>
+</tr>
