@@ -27,7 +27,7 @@
       <span class='badge'>置顶</span>
     <% } %>
     <a class='' href='/topic/<%= topic._id %>'>
-      <%= topic.title %>
+      <%- topic.title.replace(/^[\[【](.*?)[\]】](.*)/g, "<span class='label label-primary'>$1</span>$2") %>
     </a>
   </div>
   <% if(topic.reply) {%>

@@ -57,13 +57,13 @@
     </div>
     <div class='inner post'>
       <% if(locals.edit_error){ %>
-      <div class="alert alert-error"> 
+      <div class="alert alert-danger"> 
         <a class="close" data-dismiss="alert" href="#">&times;</a>
         <strong><%= edit_error %></strong>
       </div>
       <% } %>
       <% if(locals.error){ %>
-      <div class="alert alert-error" >  
+      <div class="alert alert-danger" >  
         <strong><%= error %></strong>
       </div>
       <% }else{ %>
@@ -74,7 +74,7 @@
       <% } %>
         <fieldset>
           <label for='title'>标题</label>
-          <input id='title' name='title' class="form-control" placeholder="请在此输入标题"><%= locals.title || '' %></textarea>
+          <input id='title' name='title' class="form-control" placeholder="请在此输入标题" value="<%= locals.title || '' %>"></input>
           <label for='t_content'>内容</label>
           <textarea class='editor' id='wmd-input' name='t_content' class="form-control" rows='20'><%= locals.content || '' %></textarea>
 
