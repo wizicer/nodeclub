@@ -31,10 +31,10 @@
     </a>
   </div>
   <% if(topic.reply) {%>
-    <div class='col-md-2 col-xs-2'><%= topic.reply.friendly_create_at %></div>
+    <div class='col-md-2 col-xs-2 hidden-xs'><%= topic.reply.friendly_create_at %></div>
   <% } %>
   <% if(!topic.reply) {%>
-    <div class='col-md-2 col-xs-2'><%= topic.friendly_create_at %></div>
+    <div class='col-md-2 col-xs-2 hidden-xs'><%= topic.friendly_create_at %></div>
   <% } %>
 </div>
 </li>
