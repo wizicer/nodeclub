@@ -135,7 +135,9 @@
           <div class='tab-content'>
             <div class='tab-pane active' id='markdown'>
               <div id='wmd-button-bar'></div>
-              <textarea class='span8 editor' id='wmd-input' name='r_content' rows='8'></textarea>
+              <div id="epiceditor">
+              </div>
+              <textarea class='span8 editor form-control' id='wmd-input' name='r_content' rows='8'></textarea>
             </div>
             <div id='preview' class='tab-pane'>
               <div id='wmd-preview' class='wmd-preview reply-wmd-preview'></div>
@@ -146,6 +148,7 @@
 
         <button id='submit_btn' class='btn btn-primary'>回复</button>
         <span class='col_fade'>Ctrl+Enter 快捷回复</span>
+        <button id='switch_btn' class='btn btn-success'>切换输入框</button>
       </form>
     </div>
   </div>
@@ -173,11 +176,11 @@
       var textarea = editorWrap.find('textarea.editor');
       var user = $btn.parents('.cell').find('.reply_author a').html();
       
-      editorWrap.show('fast', function () {
-        var editor = createEpicEditor(textarea);
-        editorList[textarea.attr('id')] = editor;
-        editor.load();
-      });
+//      editorWrap.show('fast', function () {
+//        var editor = createEpicEditor(textarea);
+//        editorList[textarea.attr('id')] = editor;
+//        editor.load();
+//      });
     });
 
     $('.reply2_at_btn').click(function () {
@@ -190,11 +193,11 @@
         textarea.val('@' + user + ' ');
       }
       
-      editorWrap.show('fast', function () {
-        var editor = createEpicEditor(textarea);
-        editorList[textarea.attr('id')] = editor;
-        editor.load();
-      });
+//      editorWrap.show('fast', function () {
+//        var editor = createEpicEditor(textarea);
+//        editorList[textarea.attr('id')] = editor;
+//        editor.load();
+//      });
     });
 
     $('#collect_btn').click(function(){
@@ -284,6 +287,7 @@
         }
       }
     };
+
   });
 </script>
 <% } %>

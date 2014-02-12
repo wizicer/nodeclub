@@ -76,11 +76,14 @@
           <label for='title'>标题</label>
           <input id='title' name='title' class="form-control" placeholder="请在此输入标题" value="<%= locals.title || '' %>"></input>
           <label for='t_content'>内容</label>
-          <textarea class='editor' id='wmd-input' name='t_content' class="form-control" rows='20'><%= locals.content || '' %></textarea>
+              <div id="epiceditor">
+              </div>
+          <textarea class='editor form-control' id='wmd-input' name='t_content' class="form-control" rows='20'><%= locals.content || '' %></textarea>
 
           <input type='hidden' id='topic_tags' name='topic_tags' value=''></input>
           <input type='hidden' name='_csrf' value='<%= csrf %>' />
           <button id='submit_btn' type="submit" class='btn btn-primary'>发布</button>
+        <button id='switch_btn' class='btn btn-success'>切换输入框</button>
         </fieldset>
       </form>
     </div>

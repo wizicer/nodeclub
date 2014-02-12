@@ -8,12 +8,12 @@ function createEpicEditor (textarea) {
   var $node = $(textarea);
   var id = $node.attr('id');
   var h = $node.height();
-  $node.before('<div id="editor_' + id + '" style="height:' + h + 'px; border: 1px solid #DDD; border-radius: 4px;"></div>');
-  $node.hide();
+//  $node.before('<div id="editor_' + id + '" style="height:' + h + 'px; border: 1px solid #DDD; border-radius: 4px;"></div>');
+//  $node.hide();
 
   var opts = {
-    container: 'editor_' + id,
-    textarea: id,
+//    container: 'editor_' + id,
+    textarea: 'wmd-input',
     basePath: '/public/libs/epiceditor',
     clientSideStorage: false,
     useNativeFullscreen: true,
@@ -108,10 +108,39 @@ function epicEditorPrepend (editor, text) {
   return editor.getElement('editor').body.innerHTML = text + editor.getElement('editor').body.innerHTML;
 }
 
+var geditor;
 // 自动创建编辑框
 $(function () {
   var $node = $('#wmd-input');
   if ($node.length > 0) {
-    createEpicEditor($node).load();
+    $node.hide();
+    var editor = createEpicEditor();//$node)
+    editor.load();
+    geditor = editor;
   }
+
+
+    $('#switch_btn').click(function () {
+      var $node = $('#wmd-input');        
+      var $editor = $('#epiceditor');        
+      console.log(geditor);
+      var $content = geditor.exportFile();
+      console.log($content);
+      if (!geditor.is('unloaded'))
+      {
+        geditor.unload();
+        $node.val($content);
+        $node.show();
+        $editor.hide();
+      }
+      else
+      {
+        $node.hide();
+        geditor.importFile('', $node.val());
+        $editor.removeAttr('style');
+        geditor.load();
+      }
+      return false;
+    });
+
 });
