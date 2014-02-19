@@ -24,8 +24,7 @@
   <div class='col-md-7 col-xs-7'>
     <!--<%- partial('tag/tag_in_abstract',{collection:topic.tags, as:'tag'}) %>-->
     <a class='' href='/topic/<%= topic._id %>'>
-    <% if (topic.title.substring(0, 1) === '|') { 
-        console.log(topic.title);%>
+    <% if (topic.title.substring(0, 1) === '|') { %>
         <% var match = /^\|(\d+)\/(\d+)([:：](.*))?\|(.*)?/g.exec(topic.title);
         if (match != null) {
             percent = match[1] / match[2] * 100; 
