@@ -23,11 +23,29 @@
 
   <div class='col-md-7 col-xs-7'>
     <!--<%- partial('tag/tag_in_abstract',{collection:topic.tags, as:'tag'}) %>-->
-    <% if (topic.top) { %>
-      <span class='badge'>置顶</span>
-    <% } %>
     <a class='' href='/topic/<%= topic._id %>'>
+    <% if (topic.title.substring(0, 1) === '|') { 
+        console.log(topic.title);%>
+        <% var match = /^\|(\d+)\/(\d+)([:：](.*))?\|(.*)?/g.exec(topic.title);
+        if (match != null) {
+            percent = match[1] / match[2] * 100; 
+            percent2 = 100 - percent;
+            %>
+        <div class="progress">
+            <div class="progress-bar" style="width: <%- percent %>%; ">
+            <%- match[4] %>
+            </div>
+            <div class="progress-bar progress-bar-info" style="width: <%- percent2 %>%; ">
+            <%- match[5] %>
+            </div>
+        </div>
+        <% } %>
+    <% } else { %>
+        <% if (topic.top) { %>
+        <span class='badge'>置顶</span>
+        <% } %>
       <%- topic.title.replace(/^[\[【](.*?)[\]】](.*)/g, "<span class='label label-primary'>$1</span>$2") %>
+    <% } %>
     </a>
   </div>
   <% if(topic.reply) {%>
