@@ -17,12 +17,6 @@
         <a href='/signin'>登录</a>
         或
         <a href='/signup'>注册</a>
-        , 也可以
-        <a href="/auth/github">
-          <span class="span-info">
-            通过 GitHub 登录
-          </span>
-        </a>
       </div>
     </div>
     <% } %>
@@ -59,7 +53,7 @@
   </div>
   <% } %>
 
-  <% if (typeof(tops) !== 'undefined') { %>
+  <% if (false && typeof(tops) !== 'undefined') { %>
   <div class='panel'>
     <div class='header'>
       <span class='col_fade'>积分榜</span>
@@ -77,32 +71,4 @@
     </div>
   </div>
   <% } %>
-
-  <div class='panel'>
-    <div class='header'>
-      <span class='col_fade'>友情社区</span>
-    </div>
-    <div class='inner'>
-      <ol class="friendship-community">
-        <li>
-          <a href="https://ruby-china.org/" target="_blank">
-            <img src="<%- staticFile('/public/images/ruby-china-logo2.png') %>">
-          </a>
-        </li>
-        <div class="sep10"></div>
-        <li>
-          <a href="http://golangtc.com/" target="_blank">
-            <img src="<%- staticFile('/public/images/golangtc-logo.png') %>">
-          </a>
-        </li>
-        <div class="sep10"></div>
-        <li>
-          <a href="http://phphub.org/" target="_blank">
-            <img src="<%- staticFile('/public/images/phphub-logo.png') %>">
-          </a>
-        </li>
-      </ol>
-    </div>
-  </div>
-
 </div>

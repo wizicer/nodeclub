@@ -128,6 +128,7 @@
       <div class='topic_content'>
         <%- markdown(topic.linkedContent) %>
       </div>
+      <% if (false) { %>
       <div class="share">
         <!-- JiaThis Button BEGIN -->
         <div class="jiathis_style_24x24">
@@ -141,6 +142,7 @@
         <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
         <!-- JiaThis Button END -->
       </div>
+      <% } %>
     </div>
   </div>
   <% if (topic.replies && topic.replies.length > 0) { %>

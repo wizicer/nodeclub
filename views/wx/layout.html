@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <!-- meta -->
+  <meta charset="utf-8"/>
+  <meta name='description' content='<%= config.description %>'>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="keywords" content="<%= config.keywords %>"/>
+  <meta name="referrer" content="always">
+  <% if (config.site_icon) { %>
+  <link rel="icon" href="<%- staticFile(config.site_icon) %>" type="image/x-icon"/>
+  <% } %>
+
+  <!-- style -->
+  <%- Loader('/public/stylesheets/index.min.css')
+  .css('/public/stylesheets/style.less')
+  .css('/public/stylesheets/responsive.css')
+  .done(assets, config.site_static_host, config.mini_assets)
+  %>
+
+  <!-- scripts -->
+  <%- Loader('/public/index.min.js')
+  .js('/public/libs/jquery-2.1.0.js')
+  .js('/public/javascripts/main.js')
+  .js('/public/javascripts/responsive.js')
+  .done(assets, config.site_static_host, config.mini_assets)
+  %>
+
+  <% if (typeof(topic) !== 'undefined') { %>
+  <title><%= topic.title %> - <%= config.name %></title>
+  <% } %>
+  <meta content="_csrf" name="csrf-param">
+  <meta content="<%= csrf %>" name="csrf-token">
+</head>
+<body>
+<div id='main'>
+  <%- body %>
+</div>
+<div id='backtotop'>回到顶部</div>
+</body>
+</html>

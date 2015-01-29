@@ -22,6 +22,7 @@ var GitHubStrategy = require('passport-github').Strategy;
 var githubStrategyMiddleware = require('./middlewares/github_strategy');
 var webRouter = require('./web_router');
 var apiRouterV1 = require('./api_router_v1');
+var wxRouter = require('./wx');
 var auth = require('./middlewares/auth');
 var MongoStore = require('connect-mongo')(session);
 var _ = require('lodash');
@@ -31,6 +32,7 @@ var bodyParser = require('body-parser');
 var busboy = require('connect-busboy');
 var errorhandler = require('errorhandler');
 var cors = require('cors');
+var morgan = require('morgan')
 
 // 静态文件目录
 var staticDir = path.join(__dirname, 'public');
@@ -58,6 +60,7 @@ app.engine('html', require('ejs-mate'));
 app.locals._layoutFile = 'layout.html';
 
 app.use(require('response-time')());
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
@@ -130,6 +133,7 @@ app.use(busboy({
 // routes
 app.use('/', webRouter);
 app.use('/api/v1', cors(), apiRouterV1);
+app.use('/wx', wxRouter);
 
 // error handler
 if (config.debug) {
