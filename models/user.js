@@ -18,6 +18,7 @@ var UserSchema = new Schema({
   githubUsername: {type: String},
   githubAccessToken: {type: String},
   is_block: {type: Boolean, default: false},
+  weixinId: { type: String },
 
   score: { type: Number, default: 0 },
   topic_count: { type: Number, default: 0 },

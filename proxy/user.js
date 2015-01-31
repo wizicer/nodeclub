@@ -43,6 +43,18 @@ exports.getUserById = function (id, callback) {
 };
 
 /**
+ * 根据用户weixinID，查找用户
+ * Callback:
+ * - err, 数据库异常
+ * - user, 用户
+ * @param {String} id 用户weixinID
+ * @param {Function} callback 回调函数
+ */
+exports.getUserByWeixinId = function (id, callback) {
+  User.findOne({weixinId: id}, callback);
+};
+
+/**
  * 根据邮箱，查找用户
  * Callback:
  * - err, 数据库异常

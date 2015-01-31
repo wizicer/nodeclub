@@ -60,7 +60,7 @@ app.engine('html', require('ejs-mate'));
 app.locals._layoutFile = 'layout.html';
 
 app.use(require('response-time')());
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
