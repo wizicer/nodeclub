@@ -28,7 +28,7 @@ var config = require('./config');
 var router = express.Router();
 
 // home page
-router.get('/', site.index);
+router.get('/', auth.loginRequired, site.index);
 // sitemap
 router.get('/sitemap.xml', site.sitemap);
 
@@ -50,14 +50,14 @@ router.get('/reset_pass', sign.reset_pass);  // 进入重置密码页面
 router.post('/reset_pass', sign.update_pass);  // 更新密码
 
 // user controller
-router.get('/user/:name', user.index); // 用户个人主页
+router.get('/user/:name', auth.userRequired, user.index); // 用户个人主页
 router.get('/setting', auth.userRequired, user.showSetting); // 用户个人设置页
 router.post('/setting', auth.userRequired, user.setting); // 提交个人信息设置
-router.get('/stars', user.show_stars); // 显示所有达人列表页
-router.get('/users/top100', user.top100);  // 显示积分前一百用户页
-router.get('/user/:name/collections', user.get_collect_topics);  // 用户收藏的所有话题页
-router.get('/user/:name/topics', user.list_topics);  // 用户发布的所有话题页
-router.get('/user/:name/replies', user.list_replies);  // 用户参与的所有回复页
+router.get('/stars', auth.userRequired, user.show_stars); // 显示所有达人列表页
+router.get('/users/top100', auth.userRequired, user.top100);  // 显示积分前一百用户页
+router.get('/user/:name/collections', auth.userRequired, user.get_collect_topics);  // 用户收藏的所有话题页
+router.get('/user/:name/topics', auth.userRequired, user.list_topics);  // 用户发布的所有话题页
+router.get('/user/:name/replies', auth.userRequired, user.list_replies);  // 用户参与的所有回复页
 router.post('/user/set_star', auth.adminRequired, user.toggle_star); // 把某用户设为达人
 router.post('/user/cancel_star', auth.adminRequired, user.toggle_star);  // 取消某用户的达人身份
 router.post('/user/:name/block', auth.adminRequired, user.block);  // 禁言某用户
@@ -71,7 +71,7 @@ router.get('/my/messages', auth.userRequired, message.index); // 用户个人的
 // 新建文章界面
 router.get('/topic/create', auth.userRequired, topic.create);
 
-router.get('/topic/:tid', topic.index);  // 显示某个话题
+router.get('/topic/:tid', auth.userRequired, topic.index);  // 显示某个话题
 router.post('/topic/:tid/top/:is_top?', auth.adminRequired, topic.top);  // 将某话题置顶
 router.post('/topic/:tid/good/:is_good?', auth.adminRequired, topic.good); // 将某话题加精
 router.get('/topic/:tid/edit', auth.userRequired, topic.showEdit);  // 编辑某话题
@@ -94,14 +94,10 @@ router.post('/reply/:reply_id/up', auth.userRequired, reply.up); // 为评论点
 router.post('/upload', auth.userRequired, topic.upload); //上传图片
 
 // static
-router.get('/about', staticController.about);
-router.get('/faq', staticController.faq);
-router.get('/getstart', staticController.getstart);
-router.get('/robots.txt', staticController.robots);
-router.get('/api', staticController.api);
+router.get('/about', auth.userRequired, staticController.about);
 
 //rss
-router.get('/rss', rss.index);
+router.get('/rss', auth.userRequired, rss.index);
 
 // github oauth
 router.get('/auth/github', configMiddleware.github, passport.authenticate('github'));

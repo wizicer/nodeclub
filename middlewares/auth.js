@@ -22,6 +22,16 @@ exports.adminRequired = function (req, res, next) {
 /**
  * 需要登录
  */
+exports.loginRequired = function (req, res, next) {
+  if (!req.session || !req.session.user) {
+    return res.redirect('/signin');
+  }
+  next();
+};
+
+/**
+ * 需要登录
+ */
 exports.userRequired = function (req, res, next) {
   if (!req.session || !req.session.user) {
     return res.status(403).send('forbidden!');
