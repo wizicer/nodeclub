@@ -71,7 +71,8 @@ app.use(compress());
 app.use(session({
   secret: config.session_secret,
   store: new MongoStore({
-    url: config.db
+    url: config.db,
+    auto_reconnect: true
   }),
   resave: true,
   saveUninitialized: true,
