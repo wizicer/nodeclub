@@ -150,5 +150,11 @@
 </div>
 <% } %>
 
+<% if (config.la51_tracker_id) { %>
+<div style="display:none;">
+    <script language="javascript" type="text/javascript" src="http://js.users.51.la/<%= config.la51_tracker_id %>.js"></script>
+</div>
+<% } %>
+
 </body>
 </html>

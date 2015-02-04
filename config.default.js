@@ -33,6 +33,8 @@ var config = {
   google_tracker_id: '',
   // 默认的cnzz tracker ID，自有站点请修改
   cnzz_tracker_id: '',
+  // 默认的51la tracker ID，自有站点请修改
+  la51_tracker_id: '',
 
   // mongodb 配置
   db: 'mongodb://127.0.0.1/node_club_dev',
