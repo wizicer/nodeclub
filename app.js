@@ -11,7 +11,8 @@ var config = require('./config');
 if (!config.debug) {
   require('newrelic');
 }
-
+ 
+require('coffee-script/register');
 var path = require('path');
 var Loader = require('loader');
 var express = require('express');
@@ -22,7 +23,7 @@ var GitHubStrategy = require('passport-github').Strategy;
 var githubStrategyMiddleware = require('./middlewares/github_strategy');
 var webRouter = require('./web_router');
 var apiRouterV1 = require('./api_router_v1');
-var wxRouter = require('./wx');
+var wxRouter = require('./wx/route');
 var auth = require('./middlewares/auth');
 var MongoStore = require('connect-mongo')(session);
 var _ = require('lodash');
